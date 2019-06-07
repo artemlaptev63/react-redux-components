@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import './App.scss';
+import { Route, Redirect, Switch, HashRouter } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import StyleGuide from './style-guide/StyleGuide';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <HashRouter>
+        <div className="app">
+          <Switch>
+            <Redirect exact from="/" to="/login"/>
+            <Route exact component={LoginForm} path="/login" />
+          </Switch>
+          <Route exact component={StyleGuide} path="/styling" />
+        </div>
+      </HashRouter>
+    );
+  }
 }
+
 
 export default App;

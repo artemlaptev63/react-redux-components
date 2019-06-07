@@ -1,0 +1,53 @@
+@import '../../styles.scss';
+
+.button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  min-width: 10rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 0.1rem solid $primary;
+  color: $primary;
+  background: transparent;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  &_primary {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+  }
+
+  &_alert {
+    background: $alert;
+    color: $white;
+    border-color: $alert;
+  }
+
+  &_success {
+    background: $success;
+    color: $white;
+    border-color: $success;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &[disabled] {
+    color: $mono;
+    background: $white;
+    border: 0.1rem solid $mono;
+    cursor: initial;
+    pointer-events: none;
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.button-loader {
+  position: absolute;
+}
